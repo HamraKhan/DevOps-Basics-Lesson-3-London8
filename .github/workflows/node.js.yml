@@ -1,5 +1,12 @@
 name: Run PR Tests
-on: pull_request
+on:
+  push:
+    branches: 
+      - '**'
+  pull_request:
+    branches: 
+      - '**'
+      - '!master' 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,6 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm ci
     - run: npm install
     - name: Run tests
     - run: npm test
