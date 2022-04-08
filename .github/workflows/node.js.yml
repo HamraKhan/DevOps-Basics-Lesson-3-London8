@@ -2,17 +2,17 @@ name: Run PR Tests
 on: pull_request
 jobs:
   build:
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      node-version: [16.x]
-  steps:
-  - uses: actions/checkout@v3
-  - name: Install modules using Node.js ${{ matrix.node-version }}
-    uses: actions/setup-node@v3
-    with:
-      node-version: ${{ matrix.node-version }}
-      cache: 'npm'
-  - run: npm install
-  - name: Run tests
-  - run: npm test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install modules using Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - name: Run tests
+    - run: npm test
