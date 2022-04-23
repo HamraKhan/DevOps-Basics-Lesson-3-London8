@@ -5,6 +5,7 @@ const indexHandler = (req, res) => {
   request_number += 1;
 
   res.send(`Hello! The current server time in is ${current_time}. The server has responded to ${request_number} requests since it started.`)
+  console.log(`The current time is ${current_time} and the request number is ${request_number}`);
 }
 
 const sayHelloHandler = (req, res) => {
